@@ -3,10 +3,8 @@ import product from "../models/product.js";
 export const getAllProducts = async (req, res) => {
     console.log( res.locals.customData)
   try {
-    console.log("getting")
-    // hide price field in the response
-
-    const products = await product.find({},{price:0}); 
+    console.log("getting here")
+   const products = await product.find({},{price:0}); 
     res.status(200).send(products);
   } catch (err) {
     console.error(err);
