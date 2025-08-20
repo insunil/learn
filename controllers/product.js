@@ -3,7 +3,7 @@ import product from "../models/product.js";
 export const getAllProducts = async (req, res) => {
     console.log( res.locals.customData)
   try {
-    console.log("getting here")
+    console.log("getting here in getAllProducts");
    const products = await product.find({},{price:0}); 
     res.status(200).send(products);
   } catch (err) {
@@ -33,9 +33,7 @@ export const createProduct = async (req, res) => {
       product: savedProduct,
     });
   } catch (err) {
-    console.error(err);
-
-    
+    console.error(err); 
     if (err.name === "ValidationError") {
       return res.status(400).json({
         message: "Validation error",
